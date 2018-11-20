@@ -1,3 +1,12 @@
+/*
+ *  Header file for the ArrayList
+ * 
+ *  File:  hashmap.h
+ *  Author: Riccardo Sieve
+ *
+ *  Created on 19 November 2018, 9:40
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
