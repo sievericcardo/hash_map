@@ -58,7 +58,6 @@ int hashing_function(HashMap* t, void* key, long (*fptr)(void*)) {
 
     printf("What the hell do I get? %ld\n", hashing_factor);
 
-    //int hash = (int) (((hashing_factor + LONG_MAX) / sizeof(Node)) % t->capacity);
     int hash = (int) (hashing_factor % t->capacity);
 
     printf("This is the last hope with %d\n", hash);
@@ -111,15 +110,6 @@ float HashMap_lookup(HashMap* t, void* key, long(*fptr)(void*), boolean(*fptr2)(
     return -1;
 }
 
-int get_size(char** text) {
-    int size=0;
-
-    while(text[size])
-        size++;
-
-    return size;
-}
-
 int main() {
     HashMap *t = HashMap_create(150);
 
@@ -132,7 +122,6 @@ int main() {
         HashMap_insert(t, buffer, rand()%30, string_hashing);
     }
 
-    //printf("%f\n", lookup(t, "ligula", hash, equal_string));
     printf("%f\n", HashMap_lookup(t, "dui.", string_hashing, equals_strings));
 
     return 0;
