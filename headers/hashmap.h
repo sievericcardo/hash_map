@@ -7,6 +7,9 @@
  *  Created on 19 November 2018, 9:40
  */
 
+#ifndef _HASHMAP_H_INCLUDED_
+#define _HASHMAP_H_INCLUDED_
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -66,3 +69,5 @@ boolean equals_strings (void* , void*);
 HashMap* HashMap_create(size_t );
 void HashMap_insert(HashMap* , void* , float , long (*fptr)(void*));
 float HashMap_lookup(HashMap* , void* , long(*fptr)(void*), boolean(*fptr2)(void*, void*));
+
+#endif
