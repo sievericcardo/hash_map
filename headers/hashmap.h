@@ -1,5 +1,5 @@
 /*
- *  Header file for the ArrayList
+ *  Header file for the HashMap
  * 
  *  File:  hashmap.h
  *  Author: Riccardo Sieve
