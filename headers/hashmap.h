@@ -10,16 +10,6 @@
 /* Custom boolean type */
 typedef enum {FALSE, TRUE} boolean;
 
-void exception(char* message) {
-    int errnum = errno;
-    fprintf(stderr, "%s: %s\n", message, strerror( errnum ));
-    exit(EXIT_FAILURE);
-}
-
-void malloc_exception() {
-    exception("Error while allocating memory\n");
-}
-
 typedef struct _Node {
     void* key;
     float value;
@@ -31,3 +21,39 @@ typedef struct _HashMap {
     size_t capacity;
     Node** buckets;
 } HashMap;
+
+/* Hashing Functions */
+long string_hashing(void* );
+
+/* Extra functions */
+// New Elements
+int* new_int(int);
+int64_t* new_big_int(int64_t);
+float* new_float(float);
+long* new_long(long);
+double* new_double(double);
+char* new_char(char);
+char* new_string(char*);
+
+// Compare elements
+int compare_int(void* , void*);
+int compare_big_int(void* , void*);
+int compare_float(void* , void*);
+int compare_long(void* , void*);
+int compare_double(void* , void*);
+int compare_chars(void* , void*);
+int compare_strings(void* , void*);
+
+// Check that two elements are equals
+boolean equals_int (void* , void*);
+boolean equals_big_int (void* , void*);
+boolean equals_float (void* , void*);
+boolean equals_long (void* , void*);
+boolean equals_double (void* , void*);
+boolean equals_char (void* , void*);
+boolean equals_strings (void* , void*);
+
+/* HashMap functions */
+HashMap* HashMap_create(size_t );
+void HashMap_insert(HashMap* , void* , float , long (*fptr)(void*));
+float HashMap_lookup(HashMap* , void* , long(*fptr)(void*), boolean(*fptr2)(void*, void*));
