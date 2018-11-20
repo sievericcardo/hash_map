@@ -10,8 +10,8 @@ void malloc_exception() {
     exception("Error while allocating memory\n");
 }
 
-void head_insertion(Node** list, int hash_position, void* key, float value) {
-    Node* new_node = (Node*)  malloc(2*sizeof(Node));
+void head_insertion(MapNode** list, int hash_position, void* key, float value) {
+    MapNode* new_node = (MapNode*)  malloc(2*sizeof(MapNode));
 
     if(!new_node)
         malloc_exception();
@@ -40,7 +40,7 @@ HashMap* HashMap_create(size_t capacity){
 
     t->size = 0;
     t->capacity = capacity;
-    t->buckets = (Node**) malloc(sizeof(Node*) * t->capacity);
+    t->buckets = (MapNode**) malloc(sizeof(MapNode*) * t->capacity);
 
     if(!t->buckets)
         malloc_exception();
@@ -93,7 +93,7 @@ float HashMap_lookup(HashMap* t, void* key, long(*fptr)(void*), boolean(*fptr2)(
     printf("Ready for lookup!\n");
     printf("Found position: %d\n", hashing_position);
 
-    Node *list = t->buckets[hashing_position];
+    MapNode *list = t->buckets[hashing_position];
     
     if(!list)
         printf("What happened?\n");

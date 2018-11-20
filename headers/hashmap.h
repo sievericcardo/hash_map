@@ -22,16 +22,16 @@
 /* Custom boolean type */
 typedef enum {FALSE, TRUE} boolean;
 
-typedef struct _Node {
+typedef struct _MapNode {
     void* key;
     float value;
-    struct _Node *next;
-} Node;
+    struct _MapNode *next;
+} MapNode;
 
 typedef struct _HashMap {
     size_t size;
     size_t capacity;
-    Node** buckets;
+    MapNode** buckets;
 } HashMap;
 
 /* Hashing Functions */
